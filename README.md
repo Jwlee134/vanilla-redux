@@ -1,2 +1,3 @@
-# vanilla-redux
- Learning Redux
+# Vanilla Redux
+
+Learning Redux
