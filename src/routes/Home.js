@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import ToDo from "../components/ToDo";
-import { actionCreators } from "../store";
+import ToDos from "../Components/ToDos";
+import { dispatchAddToDo } from "../store";
 
 const Home = ({ toDos, addToDo }) => {
   const [text, setText] = useState("");
@@ -22,7 +22,7 @@ const Home = ({ toDos, addToDo }) => {
       </form>
       <ul>
         {toDos.map((toDo) => {
-          return <ToDo {...toDo} key={toDo.id} />;
+          return <ToDos {...toDo} key={toDo.id} />;
         })}
       </ul>
     </div>
@@ -30,11 +30,15 @@ const Home = ({ toDos, addToDo }) => {
 };
 
 const mapStateToProps = (state) => {
-  return { toDos: state };
+  return {
+    toDos: state,
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return { addToDo: (text) => dispatch(actionCreators.addToDo(text)) };
+  return {
+    addToDo: (text) => dispatch(dispatchAddToDo(text)),
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
