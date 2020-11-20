@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { dispatchDeleteToDo } from "../store";
+import { remove } from "../store";
 
 const ToDos = ({ text, id, deleteToDo }) => {
   return (
@@ -14,7 +14,7 @@ const ToDos = ({ text, id, deleteToDo }) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    deleteToDo: () => dispatch(dispatchDeleteToDo(ownProps.id)),
+    deleteToDo: () => dispatch(remove(ownProps.id)),
   };
 };
 
