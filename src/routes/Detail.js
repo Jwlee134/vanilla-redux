@@ -10,6 +10,8 @@ const Detail = ({ toDos }) => {
   );
 };
 
+// Detail의 ownProps = react-router에 의해 제공되는 props
+
 const mapStateToProps = (state, ownProps) => {
   const {
     match: {
